@@ -1,12 +1,28 @@
-import { Center, Heading } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text, Center } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
+import CircularTextSVG from "../../components/icons/circularText";
 export default function Home() {
   return (
-    <>
-    <Heading >
-    <Center>
-      Welcome to food ordering App
-    </Center>
-    </Heading>
-    </>
+    <Box margin={40}>
+      <Center>
+        <Box>
+          <Heading>
+            Welcome to food Ordering App
+          </Heading>
+          
+          <Center>
+            <CircularTextSVG />
+          </Center>
+          <Center>
+            <Box>
+              <Button >Login</Button>
+              <Button >Register</Button>
+            </Box>
+          </Center>
+
+        </Box>
+
+      </Center>
+    </Box>
   );
 }
