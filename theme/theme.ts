@@ -1,4 +1,5 @@
-import {  extendTheme } from "@chakra-ui/react";
+import index from "@/pages/Registration/Stepone";
+import {  background, border, extendTheme, filter } from "@chakra-ui/react";
 
 const theme = extendTheme({
     styles:{
@@ -11,7 +12,8 @@ const theme = extendTheme({
     colors:{
         green:{
             50: "#9ccc65",
-            100: "#8cc343"
+            100: "#8cc343",
+            200:"#C6F6D5"
         },
         red:{
             300: "#e82c44"
@@ -31,6 +33,7 @@ const theme = extendTheme({
               bg: "green.100", 
               color: "white",
               innerWidth: "30px",
+              
               _hover: {
                 bg: "green.50", 
               },
@@ -41,6 +44,24 @@ const theme = extendTheme({
             variant: "base", 
           },
         },
+        Input:{
+          baseStyle:{
+            padding:"3px"
+          },
+          variants:{
+            base:{
+              // nothing
+            },
+            secondary:{
+              borderRadius: "12px",
+              bg: "white",
+              border:"5px"
+            },
+          },
+          defaultProps:{
+            variant: "base",
+          }
+        }
       },
 
 });
