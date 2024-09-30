@@ -16,6 +16,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/icons/circularText.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/icons/circularText.js", "src/lib/db.js"],
   "exclude": ["node_modules"]
 }
