@@ -16,15 +16,15 @@ const index = () => {
   const [cpassword, setCpassword] = useState('')
  async function addInformation(){
   try{
-    const data = await axios.post('/api/registration',()=>{
-      name: name
-      email: email
-      password: password
-      cpassword: cpassword
+    const data = await axios.post('/api/registration',{
+      name: name,
+      email: email,
+      password: password,
+      cpassword: cpassword,
   })
   console.log(data);
   }catch(error){
-
+    console.log(error);
   }
 
  }
