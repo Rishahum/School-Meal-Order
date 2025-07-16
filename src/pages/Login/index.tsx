@@ -1,13 +1,32 @@
 import { Center } from "@chakra-ui/react";
 import { Box, Input, InputRightElement, Button, InputGroup, Heading, Text, Flex } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
+const axios  = require('axios')
 import { useRouter } from "next/navigation";
 const Login = () => {
   const [show, setShow] = React.useState(false)
+  const [password, setPassword] = useState('')
+  const [email, setEmail]= useState('')
   const handleClick = () => setShow(!show)
   const router = useRouter();
   function handleRoute() {
     router.push('/Registration/Stepone')
+  }
+  const handleSubmit=async()=>{
+    try{
+      const response = await axios.post('/login',{
+        email,
+        password
+      })
+      if(response){
+        router.push('/Student')
+      }
+    }catch(err){
+      console.log(err + 'login error')
+      alert('Invalid credentials')
+
+    }
+    
   }
   return (
     <Center height={'100vh'}>
@@ -23,7 +42,11 @@ const Login = () => {
           <Heading as='h4' size='md' marginBottom={'12px'}>
             LOGIN
           </Heading>
-          <Input bg={'white'} placeholder='mail id' size='md' marginBottom={'12px'} />
+          <Input 
+          bg={'white'} placeholder='mail id' size='md' 
+          marginBottom={'12px'}
+          onChange={(e)=>setEmail(e.target.value)}
+           />
 
           <InputGroup size='md'>
             <Input
@@ -31,6 +54,7 @@ const Login = () => {
               pr='4.5rem'
               type={show ? 'text' : 'password'}
               placeholder='Enter password'
+              onChange={(e)=>setPassword(e.target.value)}
             />
             <InputRightElement width='4.5rem'>
               <Button h='1.75rem' size='sm' onClick={handleClick}>
@@ -39,7 +63,7 @@ const Login = () => {
             </InputRightElement>
           </InputGroup>
           <Center margin={'15px'}>
-            <Button >
+            <Button onClick={handleSubmit}>
               Login
             </Button>
           </Center>
