@@ -14,12 +14,12 @@ const Login = () => {
   }
   const handleSubmit=async()=>{
     try{
-      const response = await axios.post('/login',{
+      const response = await axios.post('/api/login',{
         email,
         password
       })
       if(response){
-        router.push('/Student')
+        router.push('../Student')
       }
     }catch(err){
       console.log(err + 'login error')

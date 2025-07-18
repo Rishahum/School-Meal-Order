@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/react";
-
+import centerImg from '../../public/meal.png';
 function CircularTextSVG() {
   return (
     <Box textAlign="center" mt={4}>
@@ -23,6 +23,23 @@ function CircularTextSVG() {
             .  THE LUNCH BAG .  Empowered, Educated Eating
           </textPath>
         </text>
+
+         {/* <image
+          href={centerImg} // Replace with your image URL
+          x="100" // x = center - half of image width
+          y="100" // y = center - half of image height
+          width="100px"
+          height="100px"
+          // clipPath="circle(50%)" // Optional: make image circular
+        /> */}
+        <image
+          href="/meal.png" // Relative to the public folder
+          x="100"
+          y="100"
+          width="100"
+          height="100"
+          // clipPath="circle(50%)" // optional
+        />
 
         {/* Add subtext manually if needed */}
         <text x="150" y="180" textAnchor="middle" fontSize="12" fill="red">

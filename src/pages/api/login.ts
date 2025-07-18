@@ -12,7 +12,7 @@ export default async function handler(req: any, res: any) {
         'SELECT email FROM student_info WHERE email = $1',
         [email]
       );
-
+      console.log("userEmail", userEmail);
       // If no user is found, return 404
       if (userEmail.rows.length === 0) {
         return res.status(404).json({ message: 'User not found' });
@@ -25,6 +25,7 @@ export default async function handler(req: any, res: any) {
       );
 
       const storedPassword = user.rows[0].password;
+      console.log( "stored Password", storedPassword);
 
       // Compare the provided password with the stored hashed password
       const passwordCorrect = await bcrypt.compare(password, storedPassword);
